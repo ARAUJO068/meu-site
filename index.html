@@ -221,7 +221,18 @@
   <!-- Painel Admin -->
   <section class="container" id="admin" style="display:none">
     <h2>Painel Administrativo</h2>
-    <p>Acesso restrito.</p>
+
+    <h3>Adicionar / Editar Carro</h3>
+    <form onsubmit="saveCar(event)">
+      <input id="carId" type="hidden" />
+      <input id="carTitle" placeholder="Título do carro" required /><br/><br/>
+      <input id="carInfo" placeholder="Info (ex: Manual • 100.000 km)" required /><br/><br/>
+      <input id="carPrice" placeholder="Preço" required /><br/><br/>
+      <button type="submit">Salvar</button>
+    </form>
+
+    <h3 style="margin-top:40px">Carros cadastrados</h3>
+    <div id="adminCars"></div>
   </section>
 
 
@@ -273,6 +284,81 @@
     }
 
     document.querySelector('nav a[onclick*="admin"]').style.display = 'none';
+  
+    let cars = [
+      {id:1,title:'1999 Mazda Miata',info:'Manual • 120.000 km',price:'R$ 45.000'},
+      {id:2,title:'2012 BMW 335i',info:'Automático • 98.000 km',price:'R$ 78.000'}
+    ];
+
+    function renderCars(){
+      const grid = document.querySelector('.grid');
+      const adminList = document.getElementById('adminCars');
+      grid.innerHTML = '';
+      adminList.innerHTML = '';
+
+      cars.forEach(car=>{
+        // Home card
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img />
+          <div class="card-body">
+            <h3>${car.title}</h3>
+            <p>${car.info}</p>
+            <div class="card-footer">
+              <span>${car.price}</span>
+              <span>Ativo</span>
+            </div>
+          </div>`;
+        grid.appendChild(card);
+
+        // Admin item
+        const item = document.createElement('div');
+        item.style.marginBottom = '10px';
+        item.innerHTML = `
+          <strong>${car.title}</strong> - ${car.price}
+          <button onclick="editCar(${car.id})">Editar</button>
+          <button onclick="deleteCar(${car.id})">Excluir</button>
+        `;
+        adminList.appendChild(item);
+      });
+    }
+
+    function saveCar(e){
+      e.preventDefault();
+      const id = document.getElementById('carId').value;
+      const title = document.getElementById('carTitle').value;
+      const info = document.getElementById('carInfo').value;
+      const price = document.getElementById('carPrice').value;
+
+      if(id){
+        const car = cars.find(c=>c.id==id);
+        car.title = title;
+        car.info = info;
+        car.price = price;
+      } else {
+        cars.push({id:Date.now(),title,info,price});
+      }
+
+      e.target.reset();
+      renderCars();
+    }
+
+    function editCar(id){
+      const car = cars.find(c=>c.id===id);
+      document.getElementById('carId').value = car.id;
+      document.getElementById('carTitle').value = car.title;
+      document.getElementById('carInfo').value = car.info;
+      document.getElementById('carPrice').value = car.price;
+      show('admin');
+    }
+
+    function deleteCar(id){
+      cars = cars.filter(c=>c.id!==id);
+      renderCars();
+    }
+
+    renderCars();
   </script>
 
 </body>
