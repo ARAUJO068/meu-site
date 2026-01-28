@@ -218,8 +218,7 @@
 
 </body>
 </html>
-   
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -360,10 +359,10 @@
     <div class="topbar">
       <div class="logo">Cars & Bids</div>
       <nav>
-        <a href="#">Leilões</a>
-        <a href="#">Vender</a>
-        <a href="#">Resultados</a>
-        <a href="#">Entrar</a>
+        <a href="#" onclick="show('home')">Leilões</a>
+        <a href="#" onclick="show('detalhe')">Detalhe</a>
+        <a href="#" onclick="show('auth')">Entrar</a>
+        <a href="#" onclick="show('admin')">Admin</a>
       </nav>
     </div>
   </header>
@@ -375,7 +374,7 @@
     </div>
   </section>
 
-  <main class="container">
+  <main class="container" id="home">
     <div class="grid">
       <!-- Card -->
       <div class="card">
@@ -417,13 +416,13 @@
   </main>
 
   <!-- Página de Detalhe do Carro -->
-  <section class="container" id="detalhe" style="display:none">
+  <section class="container" id="detalhe">
     <h2>Detalhes do Veículo</h2>
     <p>Ano, modelo, histórico, descrição completa e galeria.</p>
   </section>
 
   <!-- Login / Cadastro -->
-  <section class="container" id="auth" style="display:none">
+  <section class="container" id="auth">
     <h2>Entrar / Criar Conta</h2>
     <form>
       <input placeholder="Email" /><br/><br/>
@@ -433,7 +432,7 @@
   </section>
 
   <!-- Painel Admin -->
-  <section class="container" id="admin" style="display:none">
+  <section class="container" id="admin">
     <h2>Painel Administrativo</h2>
     <p>Gerenciar veículos, usuários e leilões.</p>
   </section>
@@ -461,18 +460,16 @@
 
   <script>
     // Simples troca de seções (estrutura)
-    const sections = ['detalhe','auth','admin'];
+    const sections = ['home','detalhe','auth','admin'];
     function show(id){
       sections.forEach(s=>{
         const el=document.getElementById(s);
         if(el) el.style.display = s===id?'block':'none';
       });
     }
+    show('home');
   </script>
 
 </body>
 </html>
 
- 
-        
-      
