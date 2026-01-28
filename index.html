@@ -1,220 +1,225 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Pipeline Flow</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cars & Bids – Estrutura</title>
   <style>
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #ffffff;
-      background: #1e3a5f; /* fundo azul suave */
-      display: flex;
-      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background: #f5f5f5;
+      color: #111;
     }
+    a { text-decoration: none; color: inherit; }
 
-    /* SIDEBAR */
-    .sidebar {
-      width: 200px;
-      background: #142b45;
-      padding: 30px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .sidebar h2 {
-      font-size: 18px;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-      color: #a0d8ef;
-      text-align: center;
-    }
-
-    .sidebar button {
-      background: none;
-      border: none;
-      color: #ffffff;
-      padding: 10px 5px;
-      text-align: left;
-      font-size: 14px;
-      letter-spacing: 1px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-<!-- Sub-abas Roupas -->
-<div class="sub-abas">
-  <button onclick="mostrarRoupas('moletons')">Moletons</button>
-  <button onclick="mostrarRoupas('bonés')">Bonés</button>
-</div>
-
-<div id="moletons" class="roupa-categoria">
-  <!-- itens moletons aqui -->
-</div>
-<div id="bonés" class="roupa-categoria" style="display:none">
-  <!-- itens bonés aqui -->
-</div>
-
-    .sidebar button:hover {
-      color: #a0d8ef;
-    }
-
-    /* CONTEÚDO PRINCIPAL */
-    .main {
-      flex: 1;
-      padding: 50px 40px;
-    }
-
+    /* Header */
     header {
-      text-align: center;
-      margin-bottom: 40px;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .topbar {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+    }
+    .logo {
+      font-weight: 900;
+      font-size: 22px;
+    }
+    nav a {
+      margin-left: 20px;
+      font-weight: 500;
+      color: #444;
     }
 
-    header h1 {
+    /* Hero */
+    .hero {
+      background: #ffffff;
+      padding: 40px 16px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: auto;
+    }
+    .hero h1 {
       font-size: 36px;
-      letter-spacing: 5px;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      color: #555;
+      max-width: 600px;
     }
 
-    header p {
-      font-size: 14px;
-      letter-spacing: 2px;
-      color: #a0d8ef;
+    /* Grid */
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 16px;
     }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 14px;
-      letter-spacing: 4px;
-      color: #a0d8ef;
-    }
-
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
     }
 
-    .item {
-      text-align: center;
+    /* Card */
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      transition: transform .2s ease, box-shadow .2s ease;
     }
-
-    .item img {
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+    .card img {
       width: 100%;
-      max-height: 400px;
+      height: 180px;
       object-fit: cover;
-      border-radius: 6px;
-      filter: grayscale(100%);
-      transition: all 0.3s ease;
+      background: #ddd;
+    }
+    .card-body {
+      padding: 16px;
+    }
+    .card-body h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+    .card-body p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 600;
     }
 
-    .item img:hover {
-      filter: grayscale(0%);
-      transform: scale(1.03);
-    }
-
-    .item h2 {
-      margin-top: 12px;
-      font-size: 13px;
-      letter-spacing: 1px;
-      font-weight: normal;
-    }
-
+    /* Footer */
     footer {
-      text-align: center;
-      margin-top: 50px;
-      font-size: 12px;
-      color: #a0d8ef;
-      border-top: 1px solid #142b45;
-      padding-top: 20px;
+      background: #111;
+      color: #aaa;
+      padding: 40px 16px;
+      margin-top: 60px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    footer h4 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    footer a {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- SIDEBAR -->
-  <div class="sidebar">
-    <h2>MENU</h2>
-    <button onclick="mostrarSecao('roupas')">Roupas</button>
-    <button onclick="mostrarSecao('pranchas')">Pranchas</button>
-  </div>
-
-  <!-- CONTEÚDO PRINCIPAL -->
-  <div class="main">
-    <header>
-      <h1>Pipeline Flow</h1>
-      <p>SURFWEAR & STREETWEAR</p>
-    </header>
-
-    <!-- Seção Roupas -->
-    <div id="roupas" class="secao">
-      <div class="section-title">Coleção Roupas</div>
-      <section class="grid">
-        <div class="item">
-          <img src="https://via.placeholder.com/400x500" alt="Hoodie Surf">
-          <h2>HOODIE SURF</h2>
-        </div>
-
-        <div class="item">
-          <img src="https://via.placeholder.com/400x500" alt="Camiseta Oversized">
-          <h2>OVERSIZED TEE</h2>
-        </div>
-
-        <div class="item">
-          <img src="https://via.placeholder.com/400x500" alt="Boardshort">
-          <h2>BOARD SHORT</h2>
-        </div>
-
-        <div class="item">
-          <img src="https://via.placeholder.com/400x500" alt="Jaqueta Wind">
-          <h2>WIND JACKET</h2>
-        </div>
-      </section>
+  <header>
+    <div class="topbar">
+      <div class="logo">Cars & Bids</div>
+      <nav>
+        <a href="#">Leilões</a>
+        <a href="#">Vender</a>
+        <a href="#">Resultados</a>
+        <a href="#">Entrar</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- Seção Pranchas -->
-    <div id="pranchas" class="secao" style="display:none;">
-      <div class="section-title">Coleção Pranchas</div>
-      <section class="grid">
-        <div class="item">
-          <img src="https://via.placeholder.com/400x500" alt="Prancha 1">
-          <h2>PRANCHA SURF</h2>
-        </div>
-        <div class="item">
-          <img src="https://via.placeholder.com/400x500" alt="Prancha 2">
-          <h2>PRANCHA SHORTBOARD</h2>
-        </div>
-        <div class="item">
-          <img src="https://via.placeholder.com/400x500" alt="Prancha 3">
-          <h2>PRANCHA FUNBOARD</h2>
-        </div>
-      </section>
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Carros legais. Comunidade forte.</h1>
+      <p>Estrutura de site inspirada em plataformas de leilão de veículos modernos. Apenas layout e organização visual.</p>
     </div>
+  </section>
 
-    <footer>
-      © 2026 Pipeline Flow — TODOS OS DIREITOS RESERVADOS
-    </footer>
-  </div>
+  <main class="container">
+    <div class="grid">
+      <!-- Card -->
+      <div class="card">
+        <img alt="Carro" />
+        <div class="card-body">
+          <h3>1999 Mazda Miata</h3>
+          <p>Manual • 120.000 km</p>
+          <div class="card-footer">
+            <span>R$ 45.000</span>
+            <span>2 dias</span>
+          </div>
+        </div>
+      </div>
 
-  <!-- SCRIPT PARA TROCAR ABAS -->
- 
+      <div class="card">
+        <img alt="Carro" />
+        <div class="card-body">
+          <h3>2012 BMW 335i</h3>
+          <p>Automático • 98.000 km</p>
+          <div class="card-footer">
+            <span>R$ 78.000</span>
+            <span>5 dias</span>
+          </div>
+        </div>
+      </div>
 
-</div>
+      <div class="card">
+        <img alt="Carro" />
+        <div class="card-body">
+          <h3>2004 Porsche Boxster</h3>
+          <p>Manual • 110.000 km</p>
+          <div class="card-footer">
+            <span>R$ 130.000</span>
+            <span>1 dia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h4>Plataforma</h4>
+        <a href="#">Como funciona</a>
+        <a href="#">Vender um carro</a>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="#">Termos</a>
+        <a href="#">Privacidade</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
-
-
-</div>
-
 </html>
+   
+
+ 
+        
+      
