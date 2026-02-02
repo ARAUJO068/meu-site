@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cars & Bids – Estrutura</title>
+  <title>Phantom SW – Estrutura</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -146,9 +145,9 @@
 
   <header>
     <div class="topbar">
-      <div class="logo">Cars & Bids</div>
+      <div class="logo">Phantom SW</div>
       <nav>
-        <a href="#" onclick="show('home')">Leilões</a>
+        <a href="#" onclick="show('home')">Loja</a>
         <a href="#" onclick="show('detalhe')">Detalhe</a>
         <a href="#" onclick="show('auth')">Entrar</a>
         <a href="#" onclick="show('admin')">Admin</a>
@@ -158,8 +157,8 @@
 
   <section class="hero">
     <div class="hero-inner">
-      <h1>Carros legais. Comunidade forte.</h1>
-      <p>Estrutura de site inspirada em plataformas de leilão de veículos modernos. Apenas layout e organização visual.</p>
+      <h1>Streetwear & esportivo. Estilo que impõe presença.</h1>
+      <p>Marca de roupas com identidade forte, drops exclusivos e estética urbana premium.</p>
     </div>
   </section>
 
@@ -169,8 +168,8 @@
       <div class="card">
         <img alt="Carro" />
         <div class="card-body">
-          <h3>1999 Mazda Miata</h3>
-          <p>Manual • 120.000 km</p>
+          <h3>Camiseta Phantom Oversized</h3>
+          <p>Algodão premium • Oversized</p>
           <div class="card-footer">
             <span>R$ 45.000</span>
             <span>2 dias</span>
@@ -181,8 +180,8 @@
       <div class="card">
         <img alt="Carro" />
         <div class="card-body">
-          <h3>2012 BMW 335i</h3>
-          <p>Automático • 98.000 km</p>
+          <h3>Moletom Phantom Sport</h3>
+          <p>Moletom • Corte esportivo</p>
           <div class="card-footer">
             <span>R$ 78.000</span>
             <span>5 dias</span>
@@ -206,7 +205,7 @@
 
   <!-- Página de Detalhe do Carro -->
   <section class="container" id="detalhe">
-    <h2>Detalhes do Veículo</h2>
+    <h2>Detalhes do Produto</h2>
     <p>Ano, modelo, histórico, descrição completa e galeria.</p>
   </section>
 
@@ -224,7 +223,7 @@
   <section class="container" id="admin" style="display:none">
     <h2>Painel Administrativo</h2>
 
-    <h3>Adicionar / Editar Carro</h3>
+    <h3>Adicionar / Editar Produto</h3>
     <form onsubmit="saveCar(event)">
       <input id="carId" type="hidden" />
       <input id="carTitle" placeholder="Título do carro" required /><br/><br/>
@@ -233,7 +232,7 @@
       <button type="submit">Salvar</button>
     </form>
 
-    <h3 style="margin-top:40px">Carros cadastrados</h3>
+    <h3 style="margin-top:40px">Produtos cadastrados</h3>
     <div id="adminCars"></div>
   </section>
 
