@@ -3,360 +3,173 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Phantom SW – Estrutura</title>
+  <title>Phantom SW</title>
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0b0b0d;
+      --bg-soft: #121218;
+      --text: #f5f5f7;
+      --muted: #9a9aa3;
+      --border: #1f1f27;
+      --accent: #3b82f6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
     body {
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0b0f14;
-      color: #e5e7eb;
-      letter-spacing: -0.01em;
+      background: linear-gradient(180deg, #0b0b0d 0%, #0f1016 100%);
+      color: var(--text);
     }
-    a { text-decoration: none; color: inherit; }
 
-    /* Header */
     header {
-      background: #0f172a;
-      border-bottom: 1px solid #1f2937;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .topbar {
-      max-width: 1200px;
-      margin: auto;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 16px;
+      align-items: center;
+      padding: 20px 48px;
+      border-bottom: 1px solid var(--border);
     }
-    .logo {
-      font-weight: 900;
-      font-size: 22px;
-      letter-spacing: -0.03em;
+
+    header h1 {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
+
     nav a {
-      margin-left: 20px;
-      font-weight: 500;
-      color: #cbd5f5;
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+      transition: color 0.2s;
     }
 
-    /* Hero */
+    nav a:hover {
+      color: var(--text);
+    }
+
     .hero {
-      background: linear-gradient(180deg,#0f172a 0%,#020617 100%);
-      padding: 64px 16px 56px;
-      border-bottom: 1px solid #1f2937;
-    }
-    .hero-inner {
+      padding: 72px 48px 48px;
       max-width: 1200px;
-      margin: auto;
-    }
-    .hero h1 {
-      font-size: 44px;
-      margin-bottom: 14px;
-      letter-spacing: -0.04em;
-    }
-    .hero p {
-      color: #555;
-      max-width: 600px;
+      margin: 0 auto;
     }
 
-    /* Grid */
+    .hero h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
     .container {
       max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 16px;
+      margin: 0 auto;
+      padding: 32px 48px 80px;
     }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
     }
 
-    /* Card */
+    /* CARD BASE (LISO) */
     .card {
-      background: #020617;
+      background: linear-gradient(180deg, #12121a, #0e0e14);
+      border: 1px solid var(--border);
       border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid #1f2937;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.45);
-      transition: all .2s ease;
-    }
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-    }
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      background: linear-gradient(135deg,#e5e7eb,#cbd5f5);
-    }
-    .card-body {
+      min-height: 320px;
       padding: 16px;
-    }
-    .card-body h3 {
-      font-size: 18px;
-      margin-bottom: 6px;
-    }
-    .card-body p {
-      font-size: 14px;
-      color: #9ca3af;
-      margin-bottom: 10px;
-    }
-    .card-footer {
-      background: #020617;
-      color: #9ca3af;
-      padding: 64px 16px;
-      margin-top: 80px;
-      border-top: 1px solid #1f2937;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
     }
 
-    /* Footer */
+    .card-placeholder {
+      height: 160px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #1a1a22, #101018);
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
     footer {
-      background: #111;
-      color: #aaa;
-      padding: 40px 16px;
-      margin-top: 60px;
-    }
-    .footer-inner {
-      max-width: 1200px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
-    footer h4 {
-      color: #fff;
-      margin-bottom: 10px;
-    }
-    footer a {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 6px;
+      border-top: 1px solid var(--border);
+      padding: 24px 48px;
+      color: var(--muted);
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 28px; }
+    @media (max-width: 768px) {
+      header, .hero, .container, footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero h2 {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="topbar">
-      <div class="logo">Phantom SW</div>
-      <nav>
-        <a href="#" onclick="show('home')">Loja</a>
-        <a href="#" onclick="show('detalhe')">Detalhe</a>
-        <a href="#" onclick="show('auth')">Entrar</a>
-        <a href="#" onclick="show('admin')">Admin</a>
-      </nav>
-    </div>
+    <h1>Phantom SW</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Loja</a>
+      <a href="#">Sobre</a>
+      <a href="#">Entrar</a>
+    </nav>
   </header>
 
   <section class="hero">
-    <div class="hero-inner">
-      <h1>Streetwear & esportivo. Estilo que impõe presença.</h1>
-      <p>Marca de roupas com identidade forte, drops exclusivos e estética urbana premium.</p>
-    </div>
+    <h2>Streetwear & esportivo.</h2>
+    <p>Base visual limpa. Estrutura pronta para evoluir aos poucos.</p>
   </section>
 
-  <main class="container" id="home">
-    <div class="grid">
-      <!-- Card -->
+  <main class="container">
+    <section class="grid">
       <div class="card">
-  <img src="produto.jpg" alt="Produto Phantom SW">
-  <div class="card-body">
-    <span class="tag">Streetwear</span>
-    <h3>Camiseta Phantom Oversized</h3>
-    <p>Algodão premium • Corte urbano</p>
-    <div class="card-footer">
-      <span class="price">R$ 149,90</span>
-      <span class="sizes">P • M • G • GG</span>
-    </div>
-  </div>
-</div>
-        </div>
-      </div>
-        </div>
+        <div class="card-placeholder"></div>
+        <h3>Card vazio</h3>
       </div>
 
       <div class="card">
-  <img src="produto.jpg" alt="Produto Phantom SW">
-  <div class="card-body">
-    <span class="tag">Streetwear</span>
-    <h3>Camiseta Phantom Oversized</h3>
-    <p>Algodão premium • Corte urbano</p>
-    <div class="card-footer">
-      <span class="price">R$ 149,90</span>
-      <span class="sizes">P • M • G • GG</span>
-    </div>
-  </div>
-</div>
-        </div>
-      </div>
-        </div>
+        <div class="card-placeholder"></div>
+        <h3>Card vazio</h3>
       </div>
 
       <div class="card">
-  <img src="produto.jpg" alt="Produto Phantom SW">
-  <div class="card-body">
-    <span class="tag">Streetwear</span>
-    <h3>Camiseta Phantom Oversized</h3>
-    <p>Algodão premium • Corte urbano</p>
-    <div class="card-footer">
-      <span class="price">R$ 149,90</span>
-      <span class="sizes">P • M • G • GG</span>
-    </div>
-  </div>
-</div>
-        </div>
+        <div class="card-placeholder"></div>
+        <h3>Card vazio</h3>
       </div>
-        </div>
-      </div>
-    </div>
+    </section>
   </main>
 
-  <!-- Página de Detalhe do Carro -->
-  <section class="container" id="detalhe">
-    <h2>Detalhes do Produto</h2>
-    <p>Ano, modelo, histórico, descrição completa e galeria.</p>
-  </section>
-
-  <!-- Login / Cadastro -->
-  <section class="container" id="auth">
-    <h2>Entrar</h2>
-    <form onsubmit="login(event)">
-      <input id="email" placeholder="Email" required /><br/><br/>
-      <input id="password" placeholder="Senha" type="password" required /><br/><br/>
-      <button type="submit">Entrar</button>
-    </form>
-  </section>
-
-  <!-- Painel Admin -->
-  <section class="container" id="admin" style="display:none">
-    <h2>Painel Administrativo</h2>
-
-    <h3>Adicionar / Editar Produto</h3>
-    <form onsubmit="saveCar(event)">
-      <input id="carId" type="hidden" />
-      <input id="carTitle" placeholder="Título do carro" required /><br/><br/>
-      <input id="carInfo" placeholder="Info (ex: Manual • 100.000 km)" required /><br/><br/>
-      <input id="carPrice" placeholder="Preço" required /><br/><br/>
-      <button type="submit">Salvar</button>
-    </form>
-
-    <h3 style="margin-top:40px">Produtos cadastrados</h3>
-    <div id="adminCars"></div>
-  </section>
-
-
   <footer>
-    <div class="footer-inner">
-      <div>
-        <h4>Plataforma</h4>
-        <a href="#">Como funciona</a>
-        <a href="#">Vender um carro</a>
-      </div>
-      <div>
-        <h4>Empresa</h4>
-        <a href="#">Sobre</a>
-        <a href="#">Contato</a>
-      </div>
-      <div>
-        <h4>Legal</h4>
-        <a href="#">Termos</a>
-        <a href="#">Privacidade</a>
-      </div>
-    </div>
+    <span>© 2026 Phantom SW</span>
+    <span>Base em construção</span>
   </footer>
-
-  <script>
-    // Simples troca de seções (estrutura)
-    const sections = ['home','detalhe','auth','admin'];
-    function show(id){
-      sections.forEach(s=>{
-        const el=document.getElementById(s);
-        if(el) el.style.display = s===id?'block':'none';
-      });
-    }
-  
-    let cars = [
-      {id:1,title:'1999 Mazda Miata',info:'Manual • 120.000 km',price:'R$ 45.000'},
-      {id:2,title:'2012 BMW 335i',info:'Automático • 98.000 km',price:'R$ 78.000'}
-    ];
-
-    function renderCars(){
-      const grid = document.querySelector('.grid');
-      const adminList = document.getElementById('adminCars');
-      grid.innerHTML = '';
-      adminList.innerHTML = '';
-
-      cars.forEach(car=>{
-        // Home card
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <img />
-          <div class="card-body">
-            <h3>${car.title}</h3>
-            <p>${car.info}</p>
-            <div class="card-footer">
-              <span>${car.price}</span>
-              <span>Ativo</span>
-            </div>
-          </div>`;
-        grid.appendChild(card);
-
-        // Admin item
-        const item = document.createElement('div');
-        item.style.marginBottom = '10px';
-        item.innerHTML = `
-          <strong>${car.title}</strong> - ${car.price}
-          <button onclick="editCar(${car.id})">Editar</button>
-          <button onclick="deleteCar(${car.id})">Excluir</button>
-        `;
-        adminList.appendChild(item);
-      });
-    }
-
-    function saveCar(e){
-      e.preventDefault();
-      const id = document.getElementById('carId').value;
-      const title = document.getElementById('carTitle').value;
-      const info = document.getElementById('carInfo').value;
-      const price = document.getElementById('carPrice').value;
-
-      if(id){
-        const car = cars.find(c=>c.id==id);
-        car.title = title;
-        car.info = info;
-        car.price = price;
-      } else {
-        cars.push({id:Date.now(),title,info,price});
-      }
-
-      e.target.reset();
-      renderCars();
-    }
-
-    function editCar(id){
-      const car = cars.find(c=>c.id===id);
-      document.getElementById('carId').value = car.id;
-      document.getElementById('carTitle').value = car.title;
-      document.getElementById('carInfo').value = car.info;
-      document.getElementById('carPrice').value = car.price;
-      show('admin');
-    }
-
-    function deleteCar(id){
-      cars = cars.filter(c=>c.id!==id);
-      renderCars();
-    }
-
-    renderCars();
-  </script>
 
 </body>
 </html>
