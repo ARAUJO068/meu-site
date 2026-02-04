@@ -166,45 +166,51 @@
     <div class="grid">
       <!-- Card -->
       <div class="card">
-        <img alt="Produto" />
-        <div class="card-body">
-          <span class="tag">Streetwear</span>
-          <h3>Camiseta Phantom Oversized</h3>
-          <p>Algodão premium • Corte urbano</p>
-          <div class="card-footer">
-            <span class="price">R$ 149,90</span>
-            <span class="sizes">P • M • G • GG</span>
-          </div>
+  <img src="produto.jpg" alt="Produto Phantom SW">
+  <div class="card-body">
+    <span class="tag">Streetwear</span>
+    <h3>Camiseta Phantom Oversized</h3>
+    <p>Algodão premium • Corte urbano</p>
+    <div class="card-footer">
+      <span class="price">R$ 149,90</span>
+      <span class="sizes">P • M • G • GG</span>
+    </div>
+  </div>
+</div>
         </div>
       </div>
         </div>
       </div>
 
       <div class="card">
-        <img alt="Produto" />
-        <div class="card-body">
-          <span class="tag">Streetwear</span>
-          <h3>Camiseta Phantom Oversized</h3>
-          <p>Algodão premium • Corte urbano</p>
-          <div class="card-footer">
-            <span class="price">R$ 149,90</span>
-            <span class="sizes">P • M • G • GG</span>
-          </div>
+  <img src="produto.jpg" alt="Produto Phantom SW">
+  <div class="card-body">
+    <span class="tag">Streetwear</span>
+    <h3>Camiseta Phantom Oversized</h3>
+    <p>Algodão premium • Corte urbano</p>
+    <div class="card-footer">
+      <span class="price">R$ 149,90</span>
+      <span class="sizes">P • M • G • GG</span>
+    </div>
+  </div>
+</div>
         </div>
       </div>
         </div>
       </div>
 
       <div class="card">
-        <img alt="Produto" />
-        <div class="card-body">
-          <span class="tag">Streetwear</span>
-          <h3>Camiseta Phantom Oversized</h3>
-          <p>Algodão premium • Corte urbano</p>
-          <div class="card-footer">
-            <span class="price">R$ 149,90</span>
-            <span class="sizes">P • M • G • GG</span>
-          </div>
+  <img src="produto.jpg" alt="Produto Phantom SW">
+  <div class="card-body">
+    <span class="tag">Streetwear</span>
+    <h3>Camiseta Phantom Oversized</h3>
+    <p>Algodão premium • Corte urbano</p>
+    <div class="card-footer">
+      <span class="price">R$ 149,90</span>
+      <span class="sizes">P • M • G • GG</span>
+    </div>
+  </div>
+</div>
         </div>
       </div>
         </div>
@@ -275,25 +281,6 @@
         if(el) el.style.display = s===id?'block':'none';
       });
     }
-    show('home');
-
-    let isAdmin = false;
-
-    function login(e){
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      if(email === 'davifreitasdearaujo590@gmail.com' && password === '956944$Zcb'){
-        isAdmin = true;
-        document.querySelector('nav a[onclick*="admin"]').style.display = 'inline-block';
-        show('admin');
-      } else {
-        alert('Login inválido');
-      }
-    }
-
-    document.querySelector('nav a[onclick*="admin"]').style.display = 'none';
   
     let cars = [
       {id:1,title:'1999 Mazda Miata',info:'Manual • 120.000 km',price:'R$ 45.000'},
