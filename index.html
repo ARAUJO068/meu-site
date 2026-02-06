@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JN Originals</title>
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -17,14 +16,18 @@
     }
 
     body {
-      background: #ffffff;
-      color: #111;
+      background: #0b0b0b;
+      color: #fff;
     }
 
     header {
-      background: #000;
-      color: #fff;
-      padding: 16px 40px;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      padding: 18px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -32,112 +35,128 @@
 
     header h1 {
       font-size: 22px;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
     nav a {
       color: #fff;
-      margin-left: 20px;
+      margin-left: 24px;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
+      opacity: 0.8;
+      transition: .2s;
     }
 
+    nav a:hover { opacity: 1; }
+
     .hero {
-      background: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b') center/cover;
-      height: 80vh;
+      background: url('https://images.unsplash.com/photo-1516822003754-cca485356ecb') center/cover no-repeat;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: #fff;
+      padding-top: 80px;
     }
 
     .hero h2 {
-      font-size: 42px;
+      font-size: 48px;
       margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      opacity: .8;
+      margin-bottom: 24px;
     }
 
     .hero button {
-      padding: 14px 28px;
-      border: none;
-      background: #0f3d2e;
+      padding: 16px 32px;
+      border: 1px solid #fff;
+      background: transparent;
       color: white;
-      font-size: 16px;
+      font-size: 14px;
       cursor: pointer;
-      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .section {
-      padding: 60px 40px;
+      padding: 80px 40px;
     }
 
     .section h3 {
-      margin-bottom: 24px;
-      font-size: 26px;
+      margin-bottom: 40px;
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
     }
 
     .card {
-      background: #f7f7f7;
-      border-radius: 12px;
+      position: relative;
       overflow: hidden;
-      transition: 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
+      cursor: pointer;
     }
 
     .card img {
       width: 100%;
-      height: 260px;
+      height: 360px;
       object-fit: cover;
+      transition: .4s ease;
+      filter: brightness(.8);
     }
 
-    .card p {
-      padding: 12px;
+    .card:hover img {
+      transform: scale(1.08);
+      filter: brightness(.6);
+    }
+
+    .card span {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
       font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
-    .benefits {
-      background: #000;
-      color: #fff;
+    .products .card img { height: 320px; }
+
+    .community {
+      background: url('https://images.unsplash.com/photo-1520975922071-0b53b53f0cdd') center/cover;
+      height: 420px;
       display: flex;
-      justify-content: space-around;
-      padding: 40px;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
       text-align: center;
     }
 
-    .benefits div {
-      margin: 10px;
+    .community h3 {
+      font-size: 30px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
     footer {
-      background: #111;
+      background: #000;
+      padding: 60px 40px;
       color: #aaa;
-      padding: 40px;
-      font-size: 14px;
+      font-size: 13px;
     }
 
-    footer strong {
-      color: #fff;
-    }
+    footer strong { color: #fff; }
 
     @media(max-width:768px){
-      .hero h2 {
-        font-size: 28px;
-      }
-
-      header {
-        flex-direction: column;
-        gap: 10px;
-      }
+      .hero h2 { font-size: 32px; }
+      header { flex-direction: column; gap: 10px; }
     }
   </style>
 </head>
@@ -156,50 +175,67 @@
 
 <section class="hero">
   <div>
-    <h2>Seu estilo começa aqui</h2>
-    <button>Ver novidades</button>
+    <h2>marcas premiums</h2>
+    <p>roupas que te deixam na estica</p>
+    <button>Explorar coleção</button>
   </div>
 </section>
 
 <section class="section">
   <h3>Categorias</h3>
   <div class="grid">
-    <div class="card"><img src="https://images.unsplash.com/photo-1520975922071-0b53b53f0cdd"><p>Masculino</p></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f"><p>Feminino</p></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1519741497674-611481863552"><p>Calçados</p></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1521336575822-6da63fb45455"><p>Infantil</p></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796"><p>Acessórios</p></div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1520975918318-6d2c2a7b7c31">
+      <span>Masculino</span>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b">
+      <span>Feminino</span>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+      <span>Calçados</span>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521336575822-6da63fb45455">
+      <span>Infantil</span>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796">
+      <span>Acessórios</span>
+    </div>
   </div>
 </section>
 
-<section class="section">
-  <h3>Mais vendidos</h3>
+<section class="section products">
+  <h3>Mais desejados</h3>
   <div class="grid">
-    <div class="card"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"><p>Camiseta Premium</p></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246"><p>Tênis Casual</p></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1"><p>Jaqueta</p></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"><p>Relógio</p></div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+      <span>Camisetas</span>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246">
+      <span>Tênis</span>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1">
+      <span>Jaquetas e blusões</span>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f">
+      <span>Acessórios</span>
+    </div>
   </div>
 </section>
 
-<section class="benefits">
-  <div>
-    <strong>Envio para todo Brasil</strong><br>
-    Entrega rápida e segura
-  </div>
-  <div>
-    <strong>Pagamento seguro</strong><br>
-    Pix, cartão e parcelamento
-  </div>
-  <div>
-    <strong>Troca facilitada</strong><br>
-    Suporte rápido
-  </div>
+<section class="community">
+  <h3>JN é movimento. Não é só loja.</h3>
 </section>
 
 <footer>
   <p><strong>JN Originals</strong></p>
-  <p>Moda e acessórios multimarcas.</p>
+  <p>Uma marca feita pra ser referêcia </p>
   <br>
   <p>Contato: suporte@jnoriginals.com</p>
   <p>CNPJ: 00.000.000/0001-00</p>
